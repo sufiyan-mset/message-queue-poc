@@ -49,7 +49,11 @@ export class AzureServiceBusService implements OnModuleInit, OnModuleDestroy {
     }
   }
 
-  public async sendMessage(useless: string, message: any) {
+  public async sendMessage(
+    useless: string,
+    message: any,
+    options?: { priority?: boolean },
+  ) {
     await this.checkConnection(); // checking if connection string is failing or working fine
 
     if (!this.ready) {
